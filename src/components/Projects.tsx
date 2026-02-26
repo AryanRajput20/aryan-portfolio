@@ -34,7 +34,7 @@ const projects = [
   {
     title: "Video Chat & Reels App",
     desc: "Real-time video communication platform integrated with short-form video (Reels) feature.",
-    image: "/videochat&reelsapp.png",
+    image: "/videochat-reels.png",
     tech: [
       "Kotlin",
       "WebRTC",
