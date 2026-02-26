@@ -4,7 +4,7 @@ import { motion, useMotionValue, useSpring } from "framer-motion";
 import { useRef } from "react";
 
 export default function MagneticButton() {
-  const ref = useRef<HTMLDivElement>(null);
+  const ref = useRef<HTMLAnchorElement>(null);
 
   const x = useMotionValue(0);
   const y = useMotionValue(0);
@@ -12,7 +12,7 @@ export default function MagneticButton() {
   const springX = useSpring(x, { stiffness: 200, damping: 15 });
   const springY = useSpring(y, { stiffness: 200, damping: 15 });
 
-  const handleMouseMove = (e: React.MouseEvent) => {
+  const handleMouseMove = (e: React.MouseEvent<HTMLAnchorElement>) => {
     const rect = ref.current?.getBoundingClientRect();
     if (!rect) return;
 
@@ -29,16 +29,17 @@ export default function MagneticButton() {
   };
 
   return (
-    <motion.div
+    <motion.a
+      href="#projects"
       ref={ref}
       style={{ x: springX, y: springY }}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
       className="mt-10 px-8 py-3 bg-cyan-500 rounded-full
       shadow-[0_0_40px_rgba(0,255,255,0.7)]
-      cursor-pointer text-center hover:bg-cyan-400 transition"
+      cursor-pointer text-center hover:bg-cyan-400 transition inline-block"
     >
       View Projects
-    </motion.div>
+    </motion.a>
   );
 }
