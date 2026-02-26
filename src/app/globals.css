@@ -1,0 +1,11 @@
+@import "tailwindcss";
+
+/* Custom background */
+body {
+  background: radial-gradient(circle at center, #0f0f1a, #000000);
+}
+
+section {
+  position: relative;
+  z-index: 2;
+}
